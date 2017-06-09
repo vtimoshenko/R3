@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+	 version="3.1">
+    
+    <authorization-config>
+        <auth-method>FORM</auth-method>
+        <form-authorization-config>
+            <form-authorization-page>/login.jsp</form-authorization-page>
+            <form-error-page>/loginFailed.jsp</form-error-page>
+        </form-authorization-config>
+    </authorization-config>
+    
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
+</web-app>
