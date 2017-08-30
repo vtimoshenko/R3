@@ -6,10 +6,16 @@
 
     <context:component-scan base-package="rzd.pktb.rainbow.controller"/>
 
+    <!--bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"/-->
+    <!--bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"/-->
+    
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
-        <property name="prefix" value="/jsp/"/>
+        <property name="prefix" value="/views/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
+
+    <bean id="appBean" class="rzd.pktb.rainbow.manager.AppManager" scope="singleton"/>
+    <bean id="sessBean" class="rzd.pktb.rainbow.manager.SessionManager" scope="session"/>
 
 </beans>

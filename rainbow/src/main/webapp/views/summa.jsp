@@ -18,7 +18,6 @@
 <form action="sum" method="POST">
     <input type="text" name="d1"/> + <input type="text" name="d2"/> <br/>
     <input type="submit">
-
 </form>
 
 

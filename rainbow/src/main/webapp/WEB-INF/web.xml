@@ -10,9 +10,9 @@
         </param-value>
     </context-param>
 
-    <listener>
+    <!--listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-    </listener>
+    </listener-->
 
     <servlet>
         <servlet-name>dispatcher</servlet-name>
@@ -24,5 +24,41 @@
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
+    
+    
+    
+    
+    <security-role>
+        <role-name>SystemUser</role-name>
+    </security-role>
+    
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>app</web-resource-name>
+            <url-pattern>/*</url-pattern>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>SystemUser</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>AuthManager</web-resource-name>
+            <url-pattern>/auth/*</url-pattern>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+        </web-resource-collection>
+    </security-constraint>
+    
+    <login-config>
+        <auth-method>FORM</auth-method>
+        <form-login-config>
+            <form-login-page>/auth/auth.jsp</form-login-page>
+            <form-error-page>/auth/authfailed.jsp</form-error-page>
+        </form-login-config>
+    </login-config>
 
 </web-app>
